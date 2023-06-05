@@ -1,4 +1,4 @@
-import  request from 'supertest';
+import request from 'supertest';
 import { endpoints } from '../../shared/routing';
 import { CreateUserDto } from '../../modules/users/api/create-user.dto';
 import { TestingRequestDto } from '../types/testing-request.dto';

@@ -6,13 +6,13 @@ export const fistNameValidation = body('firstName')
 	.trim()
 	.isEmpty()
 	.isString()
-	.isLength({ max: validationConstant.firstName.maxLength });
+	.isLength({ min: 1, max: validationConstant.firstName.maxLength });
 
 export const lastNameValidation = body('lastName')
 	.trim()
 	.isEmpty()
 	.isString()
-	.isLength({ max: validationConstant.lastName.maxLength })
+	.isLength({ min: 1, max: validationConstant.lastName.maxLength })
 	.custom(checkLastNameExists);
 
 export const phoneNumberValidation = body('phoneNumber')

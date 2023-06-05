@@ -1,6 +1,8 @@
 import { Request, Response } from 'express';
 import { UsersService } from '../domain/users.service';
+import {injectable} from "inversify";
 
+@injectable()
 export class UserController {
 	constructor(protected usersService: UsersService) {}
 

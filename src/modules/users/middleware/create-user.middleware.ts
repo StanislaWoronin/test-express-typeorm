@@ -7,7 +7,7 @@ import {
 
 export const createUserMiddleware = [
 	fistNameValidation,
-	inputValidation,
 	lastNameValidation,
 	phoneNumberValidation,
+	inputValidation,
 ];

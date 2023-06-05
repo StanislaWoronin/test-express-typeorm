@@ -1,18 +1,18 @@
 import { User } from '../../../providers/entities/user.entity';
 import { injectable } from 'inversify';
 import { DataSource } from 'typeorm';
+import {myDataSource} from "../../../providers/typeorm/my-data-source";
 
 @injectable()
 export class UsersRepository {
-	constructor(private dataSource: DataSource) {}
 
 	async checkLastNameExists(lastName: string): Promise<boolean> {
-		return await this.dataSource.getRepository(User).exist({
+		return await myDataSource.getRepository(User).exist({
 			where: { lastName },
 		});
 	}
 
 	async createUser(user: User): Promise<User> {
-		return await this.dataSource.getRepository(User).save(user);
+		return await myDataSource.getRepository(User).save(user);
 	}
 }
