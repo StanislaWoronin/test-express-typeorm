@@ -1,13 +1,19 @@
 import { injectable } from 'inversify';
-import { AppDataSource } from '../../../index';
 import { User } from '../entity/user.entity';
+import { AppDataSource } from '../../providers/typeorm/app-data-source';
 
 @injectable()
 export class UsersRepository {
-	async checkLastNameExists(lastName: string): Promise<boolean> {
-		return await AppDataSource.getRepository(User).exist({
-			where: { lastName },
-		});
+	async checkLastNameOrPhoneExists(lastNameOrPhone: string): Promise<boolean> {
+		try {
+			const res = await AppDataSource.getRepository(User).exist({
+				where: [{ lastName: lastNameOrPhone }, { phoneNumber: lastNameOrPhone }],
+			});
+			console.log({ res });
+			return res;
+		} catch (e) {
+			console.log(e);
+		}
 	}
 
 	async createUser(user: User): Promise<User> {

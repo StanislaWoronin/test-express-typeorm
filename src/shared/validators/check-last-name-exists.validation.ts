@@ -4,10 +4,12 @@ import { UsersRepository } from '../../modules/users/infrastructure/users.reposi
 
 const userRepository = container.resolve(UsersRepository);
 
-export const checkLastNameExists: CustomValidator = async (
-	lastName,
+export const checkLastNameOrPhoneExists: CustomValidator = async (
+	lastNameOrPhone,
 ): Promise<boolean> => {
-	const isExists = await userRepository.checkLastNameExists(lastName);
-
+	const isExists = await userRepository.checkLastNameOrPhoneExists(
+		lastNameOrPhone,
+	);
+	console.log({ isExists });
 	return !isExists;
 };

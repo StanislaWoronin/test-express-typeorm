@@ -1,5 +1,5 @@
 import { injectable } from 'inversify';
-import { AppDataSource } from '../../index';
+import { AppDataSource } from '../providers/typeorm/app-data-source';
 
 @injectable()
 export class TestingRepository {

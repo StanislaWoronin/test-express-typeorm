@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { UsersService } from '../domain/users.service';
-import {injectable} from "inversify";
+import { injectable } from 'inversify';
 
 @injectable()
 export class UserController {
@@ -17,6 +17,7 @@ export class UserController {
 
 			return res.status(201).send(createdUser);
 		} catch (e) {
+			console.log(e);
 			return res.status(500).send('Something went wrong.');
 		}
 	}

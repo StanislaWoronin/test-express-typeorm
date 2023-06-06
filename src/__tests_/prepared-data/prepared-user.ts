@@ -5,7 +5,7 @@ export const preparedUser = {
 	valid: {
 		firstName: 'UserName',
 		lastName: 'UserLastName',
-		phoneNumber: '8-800-555-35-35',
+		phoneNumber: '+79158391243',
 	},
 	empty: {
 		firstName: '',
