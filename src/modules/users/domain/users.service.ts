@@ -1,6 +1,6 @@
 import { UsersRepository } from '../infrastructure/users.repository';
-import { User } from '../../../providers/entities/user.entity';
-import {injectable} from "inversify";
+import { injectable } from 'inversify';
+import { User } from '../entity/user.entity';
 
 @injectable()
 export class UsersService {
@@ -9,6 +9,6 @@ export class UsersService {
 	async createUser(fistName: string, lastName: string, phoneNumber: string) {
 		const user = User.create(fistName, lastName, phoneNumber);
 		const createdUser = await this.usersRepository.createUser(user);
-		return createdUser
+		return createdUser;
 	}
 }

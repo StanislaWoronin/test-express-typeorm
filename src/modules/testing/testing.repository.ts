@@ -1,14 +1,13 @@
 import { injectable } from 'inversify';
-
-import {myDataSource} from "../../providers/typeorm/my-data-source";
+import { AppDataSource } from '../../index';
 
 @injectable()
 export class TestingRepository {
 	async clearDb() {
-		const entities = myDataSource.entityMetadatas;
+		const entities = AppDataSource.entityMetadatas;
 		const tableNames = entities.map(entity => `"${entity.tableName}"`).join(', ');
 
-		await myDataSource.query(`TRUNCATE ${tableNames} CASCADE;`);
+		await AppDataSource.query(`TRUNCATE ${tableNames} CASCADE;`);
 
 		return;
 	}

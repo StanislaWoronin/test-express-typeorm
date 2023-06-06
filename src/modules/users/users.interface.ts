@@ -1,7 +1,7 @@
 export interface IUser {
 	id: string;
 	lastName: string;
-	fistName: string;
+	firstName: string;
 	phoneNumber: string;
 	createdAt: string;
 }
