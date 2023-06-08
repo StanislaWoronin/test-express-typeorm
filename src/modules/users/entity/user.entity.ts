@@ -1,11 +1,12 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import { IUser } from '../users.interface';
 import { userValidationConstant } from '../../../shared/validators/userValidationConstant';
+import { randomUUID } from 'crypto';
 
 @Entity()
 export class User implements IUser {
 	@PrimaryGeneratedColumn('uuid')
-	id: string;
+	id: string = randomUUID();
 
 	@Column({
 		type: 'character varying',
